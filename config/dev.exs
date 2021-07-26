@@ -2,10 +2,10 @@ use Mix.Config
 
 # Configure your database
 config :event_lens, EventLens.Repo,
-  username: "postgres",
-  password: "postgres",
-  database: "event_lens_dev",
-  hostname: "localhost",
+  username: System.get_env("PG_USER"),
+  password: System.get_env("PG_PASSWD"),
+  database: System.get_env("PG_DATABASE"),
+  hostname: System.get_env("PG_HOSTNAME"),
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
