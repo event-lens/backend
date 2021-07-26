@@ -6,10 +6,10 @@ use Mix.Config
 # to provide built-in test partitioning in CI environment.
 # Run `mix help test` for more information.
 config :event_lens, EventLens.Repo,
-  username: "postgres",
-  password: "postgres",
-  database: "event_lens_test#{System.get_env("MIX_TEST_PARTITION")}",
-  hostname: "localhost",
+  username: System.get_env("PG_USER"),
+  password: System.get_env("PG_PASSWD"),
+  database: System.get_env("PG_DATABASE"),
+  hostname: System.get_env("PG_HOSTNAME"),
   pool: Ecto.Adapters.SQL.Sandbox
 
 # We don't run a server during test. If one is required,
